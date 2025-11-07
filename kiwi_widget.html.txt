@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi.com Professional Search</title>
+    <style>
+      .kiwi-container { max-width: 900px; margin: 0 auto; font-family: "Segoe UI", Arial, sans-serif; text-align: center; direction: ltr; padding: 20px 0; }
+      .kiwi-logo { font-size: 32px; font-weight: 700; color: #00A991; margin-bottom: 20px; letter-spacing: 1px; }
+      .kiwi-form { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid #D2F2EF; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); direction: ltr; }
+      .input-group { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 4px; }
+      .input-group label { font-size: 13px; font-weight: 600; color: #555; text-align: left; margin-left: 2px; }
+      .kiwi-form input { width: 100%; padding: 12px 14px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: border-color 0.2s ease; text-align: left; direction: ltr; }
+      .kiwi-form input:focus { border-color: #00A991; }
+      .kiwi-form button { background-color: #00A991; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; align-self: flex-end; }
+      .kiwi-form button:hover { background-color: #D2F2EF; color: #00A991; }
+      @media (max-width: 768px) { .kiwi-form { flex-direction: column; gap: 14px; } .kiwi-form input, .kiwi-form button, .input-group { width: 100%; } .kiwi-form button { align-self: center; } }
+    </style>
+</head>
+<body>
+<div class="kiwi-container">
+  <div class="kiwi-logo">Kiwi.com</div>
+  <form id="kiwi_search_form" class="kiwi-form"> 
+    <input type="text" id="from_code" placeholder="Origin City (IATA Code)" required />
+    <input type="text" id="to_code" placeholder="Destination City (IATA Code)" required />
+    <div class="input-group">
+        <label for="departure">Outbound Date (YYYY-MM-DD)</label>
+        <input type="text" id="departure" placeholder="e.g., 2026-06-25" required />
+    </div>
+    <div class="input-group">
+        <label for="return_date">Return Date (YYYY-MM-DD)</label>
+        <input type="text" id="return_date" placeholder="e.g., 2026-07-05" />
+    </div>
+    <button type="submit">FIND FLIGHTS NOW</button>
+  </form>
+</div>
+<script>
+  document.getElementById('kiwi_search_form').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      const from = document.getElementById('from_code').value.trim();
+      const to = document.getElementById('to_code').value.trim();
+      const departure = document.getElementById('departure').value.trim();
+      const returnDate = document.getElementById('return_date').value.trim();
+      if (!from  !to  !departure) {
+          alert("Please fill in all required fields.");
+          return;
+      }
+      // «·—«»ÿ «·Œ«’ »ﬂ ( „ «” Œ—«ÃÂ „‰ ’Ê—ﬂ)
+      const baseURL = "https://kiwi.tpx.lt/jUjMvXF6"; 
+      const finalUrl = ${baseURL}?from=${from}&to=${to}&departure=${departure}&return=${returnDate};
+      window.top.location.href = finalUrl; 
+  });
+</script>
+</body>
+</html>

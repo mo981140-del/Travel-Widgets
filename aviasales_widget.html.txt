@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviasales Professional Search</title>
+    <style>
+      .aviasales-container { max-width: 900px; margin: 0 auto; font-family: "Segoe UI", Arial, sans-serif; text-align: center; direction: ltr; padding: 20px 0; }
+      .aviasales-logo { font-size: 32px; font-weight: 700; color: #5CA9D8; margin-bottom: 20px; letter-spacing: 1px; }
+      .aviasales-form { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid #E0F6FB; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); direction: ltr; }
+      .input-group { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 4px; }
+      .input-group label { font-size: 13px; font-weight: 600; color: #555; text-align: left; margin-left: 2px; }
+      .aviasales-form input { width: 100%; padding: 12px 14px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: border-color 0.2s ease; text-align: left; direction: ltr; }
+      .aviasales-form input:focus { border-color: #5CA9D8; }
+      .aviasales-form button { background-color: #5CA9D8; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; align-self: flex-end; }
+      .aviasales-form button:hover { background-color: #E0F6FB; color: #5CA9D8; }
+      @media (max-width: 768px) { .aviasales-form { flex-direction: column; gap: 14px; } .aviasales-form input, .aviasales-form button, .input-group { width: 100%; } .aviasales-form button { align-self: center; } }
+    </style>
+</head>
+<body>
+<div class="aviasales-container">
+  <div class="aviasales-logo">Aviasales</div>
+  <form id="aviasales_search_form" class="aviasales-form"> 
+    <input type="text" id="origin_iata" placeholder="Origin City (IATA Code)" required />
+    <input type="text" id="destination_iata" placeholder="Destination City (IATA Code)" required />
+    <div class="input-group">
+        <label for="departure_at">Outbound Date (YYYY-MM-DD)</label>
+        <input type="text" id="departure_at" placeholder="e.g., 2026-06-25" required />
+    </div>
+    <div class="input-group">
+        <label for="return_at">Return Date (YYYY-MM-DD)</label>
+        <input type="text" id="return_at" placeholder="e.g., 2026-07-05" />
+    </div>
+    <button type="submit">FIND FLIGHTS NOW</button>
+  </form>
+</div>
+<script>
+  document.getElementById('aviasales_search_form').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      const origin = document.getElementById('origin_iata').value.trim();
+      const destination = document.getElementById('destination_iata').value.trim();
+      const departDate = document.getElementById('departure_at').value.trim();
+      const returnDate = document.getElementById('return_at').value.trim();
+      if (!origin  !destination  !departDate) {
+          alert("Please fill in all required fields.");
+          return;
+      }
+      // «·—«»ÿ «·Œ«’ »ﬂ ( „ «” Œ—«ÃÂ „‰ ’Ê—ﬂ)
+      const baseURL = "https://aviasales.tpx.lt/HkZPtDdO"; 
+      const finalUrl = ${baseURL}?origin_iata=${origin}&destination_iata=${destination}&departure_at=${departDate}&return_at=${returnDate};
+      window.top.location.href = finalUrl; 
+  });
+</script>
+</body>
+</html>
