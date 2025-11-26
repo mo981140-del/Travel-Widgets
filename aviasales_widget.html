@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviasales Flight Search</title>
+    <style>
+        /* كود الـ CSS للشكل الاحترافي */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .aviasales-container { max-width: 400px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .aviasales-logo { text-align: center; font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 20px; }
+        .aviasales-form { display: flex; flex-direction: column; gap: 15px; }
+        .input-group { display: flex; flex-direction: column; }
+        .input-group label { margin-bottom: 5px; font-weight: bold; font-size: 14px; color: #333; }
+        .aviasales-form input, .aviasales-form button { padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+        .aviasales-form input[type="date"] { color: #333; }
+        .aviasales-form button { background-color: #007bff; color: white; border: none; cursor: pointer; transition: background-color 0.3s; margin-top: 10px; }
+        .aviasales-form button:hover { background-color: #0056b3; }
+        
+        @media (max-width: 768px) { .aviasales-form { flex-direction: column; gap: 14px; padding: 10px; } }
+    </style>
+</head>
 <body>
-    <h1>TEST: Aviasales Widget Check</h1>
-    <p>If you see this text, the GitHub connection is working!</p>
+    <div class="aviasales-container">
+        <div class="aviasales-logo">Aviasales</div>
+        <form id="aviasales_search_form" class="aviasales-form">
+            <input type="text" id="origin_iata" placeholder="Origin City (IATA Code)" required />
+            <input type="text" id="destination_iata" placeholder="Destination City (IATA Code)" required />
 
-    <form id="aviasales_test_form">
-        <label for="date_test">Date Input Test:</label>
-        <input type="date" id="date_test">
-        <button type="submit">Submit</button>
-    </form>
+            <div class="input-group">
+                <label for="departure_at">Outbound Date</label>
+                <input type="date" id="departure_at" placeholder="Choose Date" required>
+            </div>
+
+            <div class="input-group">
+                <label for="return_at">Return Date</label>
+                <input type="date" id="return_at" placeholder="Choose Date">
+            </div>
+
+            <button type="submit">FIND FLIGHTS NOW</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('aviasales_search_form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const origin = document.getElementById('origin_iata').value.trim();
+            const destination = document.getElementById('destination_iata').value.trim();
+            const departure_at = document.getElementById('departure_at').value;
+            const return_at = document.getElementById('return_at').value;
+
+            let url = `https://search.aviasales.com/?origin_iata=${origin}&destination_iata=${destination}&depart_date=${departure_at}&return_date=${return_at}&currency=USD&locale=en&marker=HkZPtDdO`;
+
+            window.open(url, '_blank');
+        });
+    </script>
 </body>
 </html>
