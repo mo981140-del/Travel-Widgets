@@ -28,12 +28,12 @@
 
             <div class="input-group">
                 <label for="departure_at">Outbound Date</label>
-                <input type="date" id="departure_at" placeholder="Choose Date" required />
+                <input type="date" id="departure_at" placeholder="Choose Date" required>
             </div>
 
             <div class="input-group">
                 <label for="return_at">Return Date</label>
-                <input type="date" id="return_at" placeholder="Choose Date" />
+                <input type="date" id="return_at" placeholder="Choose Date">
             </div>
 
             <button type="submit">FIND FLIGHTS NOW</button>
@@ -49,7 +49,6 @@
             const departure_at = document.getElementById('departure_at').value;
             const return_at = document.getElementById('return_at').value;
 
-            // تم إضافة رمز العمولة: HkZPtDdO
             let url = `https://search.aviasales.com/?origin_iata=${origin}&destination_iata=${destination}&depart_date=${departure_at}&return_date=${return_at}&currency=USD&locale=en&marker=HkZPtDdO`;
 
             window.open(url, '_blank');
