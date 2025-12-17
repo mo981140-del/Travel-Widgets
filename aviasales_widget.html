@@ -2,11 +2,11 @@
 <html lang="ar" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviasales - »ÕÀ —Õ·«  «·ÿÌ—«‰</title>
+    <title>Aviasales - √à√ç√ã √ë√ç√°√á√ä √á√°√ò√≠√ë√á√§</title>
     <style>
         body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .aviasales-container {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Œ·›Ì… „ œ—Ã… */
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* √é√°√ù√≠√â √£√ä√è√ë√å√â */
             max-width: 400px;
             margin: 20px auto;
             padding: 25px;
@@ -60,11 +60,11 @@
             background-color: #fff;
         }
         .aviasales-form input[type="date"] {
-            color: #333; /* ·÷„«‰ ŸÂÊ— «· «—ÌŒ »Ê÷ÊÕ */
+            color: #333; /* √°√ñ√£√á√§ √ô√•√¶√ë √á√°√ä√á√ë√≠√é √à√¶√ñ√¶√ç */
         }
         .aviasales-form button {
             padding: 14px;
-            background-color: #ffc107; /* ·Ê‰ „„Ì“ ·“— «·»ÕÀ */
+            background-color: #ffc107; /* √°√¶√§ √£√£√≠√í √°√í√ë √á√°√à√ç√ã */
             color: #000;
             border: none;
             border-radius: 8px;
@@ -80,7 +80,7 @@
             transform: translateY(-2px);
         }
         
-        /*  Õ”Ì‰«  ··‘«‘«  «·’€Ì—… */
+        /* √ä√ç√ì√≠√§√á√ä √°√°√î√á√î√á√ä √á√°√ï√õ√≠√ë√â */
         @media (max-width: 480px) {
             .aviasales-container {
                 margin: 10px;
@@ -101,26 +101,26 @@
         <div class="aviasales-logo">Aviasales</div>
         <form id="aviasales_search_form" class="aviasales-form">
             <div class="input-group">
-                <label for="origin_iata">„œÌ‰… «·„€«œ—… (—„“ IATA)</label>
-                <input type="text" id="origin_iata" placeholder="„À«·: CAI" required />
+                <label for="origin_iata">√£√è√≠√§√â √á√°√£√õ√á√è√ë√â (√ë√£√í IATA)</label>
+                <input type="text" id="origin_iata" placeholder="√£√ã√á√°: CAI" required />
             </div>
             
             <div class="input-group">
-                <label for="destination_iata">„œÌ‰… «·Ê’Ê· (—„“ IATA)</label>
-                <input type="text" id="destination_iata" placeholder="„À«·: DXB" required />
+                <label for="destination_iata">√£√è√≠√§√â √á√°√¶√ï√¶√° (√ë√£√í IATA)</label>
+                <input type="text" id="destination_iata" placeholder="√£√ã√á√°: DXB" required />
             </div>
 
             <div class="input-group">
-                <label for="departure_at"> «—ÌŒ «·–Â«»</label>
+                <label for="departure_at">√ä√á√ë√≠√é √á√°√ê√•√á√à</label>
                 <input type="date" id="departure_at" required />
             </div>
 
             <div class="input-group">
-                <label for="return_at"> «—ÌŒ «·⁄Êœ… («Œ Ì«—Ì)</label>
+                <label for="return_at">√ä√á√ë√≠√é √á√°√ö√¶√è√â (√á√é√ä√≠√á√ë√≠)</label>
                 <input type="date" id="return_at" />
             </div>
 
-            <button type="submit">«»ÕÀ ⁄‰ «·—Õ·«  «·¬‰</button>
+            <button type="submit">√á√à√ç√ã √ö√§ √á√°√ë√ç√°√á√ä √á√°√Ç√§</button>
         </form>
     </div>
 
@@ -133,7 +133,7 @@
             const departure_at = document.getElementById('departure_at').value;
             const return_at = document.getElementById('return_at').value;
 
-            // —„“ «·⁄„Ê·… «·Œ«’ »ﬂ: HkZPtDdO
+            // √ë√£√í √á√°√ö√£√¶√°√â √á√°√é√á√ï √à√ü: HkZPtDdO
             let url = `https://search.aviasales.com/?origin_iata=${origin}&destination_iata=${destination}&depart_date=${departure_at}&return_date=${return_at}&currency=USD&locale=en&marker=HkZPtDdO`;
             
             window.open(url, '_blank');
