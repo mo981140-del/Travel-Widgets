@@ -2,11 +2,11 @@
 <html lang="ar" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiwi.com - »ÕÀ —Õ·«  «·ÿÌ—«‰</title>
+    <title>Kiwi.com - √à√ç√ã √ë√ç√°√á√ä √á√°√ò√≠√ë√á√§</title>
     <style>
         body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .kiwi-container {
-            background: linear-gradient(135deg, #00a680 0%, #007a5e 100%); /* Œ·›Ì… „ œ—Ã… */
+            background: linear-gradient(135deg, #00a680 0%, #007a5e 100%); /* √é√°√ù√≠√â √£√ä√è√ë√å√â */
             max-width: 400px;
             margin: 20px auto;
             padding: 25px;
@@ -64,7 +64,7 @@
         }
         .kiwi-form button {
             padding: 14px;
-            background-color: #ffc107; /* ·Ê‰ „„Ì“ ·“— «·»ÕÀ */
+            background-color: #ffc107; /* √°√¶√§ √£√£√≠√í √°√í√ë √á√°√à√ç√ã */
             color: #000;
             border: none;
             border-radius: 8px;
@@ -80,7 +80,7 @@
             transform: translateY(-2px);
         }
         
-        /*  Õ”Ì‰«  ··‘«‘«  «·’€Ì—… */
+        /* √ä√ç√ì√≠√§√á√ä √°√°√î√á√î√á√ä √á√°√ï√õ√≠√ë√â */
         @media (max-width: 480px) {
             .kiwi-container {
                 margin: 10px;
@@ -101,26 +101,26 @@
         <div class="kiwi-logo">Kiwi.com</div>
         <form id="kiwi_search_form" class="kiwi-form">
             <div class="input-group">
-                <label for="flyFrom">„œÌ‰… «·„€«œ—… (—„“ IATA)</label>
-                <input type="text" id="flyFrom" placeholder="„À«·: CAI" required />
+                <label for="flyFrom">√£√è√≠√§√â √á√°√£√õ√á√è√ë√â (√ë√£√í IATA)</label>
+                <input type="text" id="flyFrom" placeholder="√£√ã√á√°: CAI" required />
             </div>
             
             <div class="input-group">
-                <label for="flyTo">„œÌ‰… «·Ê’Ê· (—„“ IATA)</label>
-                <input type="text" id="flyTo" placeholder="„À«·: DXB" required />
+                <label for="flyTo">√£√è√≠√§√â √á√°√¶√ï√¶√° (√ë√£√í IATA)</label>
+                <input type="text" id="flyTo" placeholder="√£√ã√á√°: DXB" required />
             </div>
 
             <div class="input-group">
-                <label for="dateFrom"> «—ÌŒ «·–Â«»</label>
+                <label for="dateFrom">√ä√á√ë√≠√é √á√°√ê√•√á√à</label>
                 <input type="date" id="dateFrom" required />
             </div>
 
             <div class="input-group">
-                <label for="dateTo"> «—ÌŒ «·⁄Êœ… («Œ Ì«—Ì)</label>
+                <label for="dateTo">√ä√á√ë√≠√é √á√°√ö√¶√è√â (√á√é√ä√≠√á√ë√≠)</label>
                 <input type="date" id="dateTo" />
             </div>
 
-            <button type="submit">«»ÕÀ ⁄‰ —Õ·«  Kiwi</button>
+            <button type="submit">√á√à√ç√ã √ö√§ √ë√ç√°√á√ä Kiwi</button>
         </form>
     </div>
 
@@ -133,11 +133,12 @@
             const dateFrom = document.getElementById('dateFrom').value;
             const dateTo = document.getElementById('dateTo').value;
 
-            // —„“ «·⁄„Ê·… «·Œ«’ »ﬂ: eHpbclVw
+            // √ë√£√í √á√°√ö√£√¶√°√â √á√°√é√á√ï √à√ü: eHpbclVw
             let url = `https://www.kiwi.com/booking?from=${flyFrom}&to=${flyTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&affilid=eHpbclVw`;
 
             window.open(url, '_blank');
         });
     </script>
 </body>
+
 </html>
