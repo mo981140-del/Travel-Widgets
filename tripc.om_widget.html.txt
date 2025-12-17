@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip.com - »ÕÀ —Õ·«  «·ÿÌ—«‰</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .tripcom-container {
+            background: linear-gradient(135deg, #ff5e3a 0%, #cc4b2f 100%); /* Œ·›Ì… „ œ—Ã… */
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+        }
+        .tripcom-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .tripcom-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .input-group {
+            position: relative;
+        }
+        .input-group label {
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background-color: #ff5e3a;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        .tripcom-form input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .tripcom-form input::placeholder {
+            color: #888;
+        }
+        .tripcom-form input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+            background-color: #fff;
+        }
+        .tripcom-form input[type="date"] {
+            color: #333;
+        }
+        .tripcom-form button {
+            padding: 14px;
+            background-color: #ffc107; /* ·Ê‰ „„Ì“ ·“— «·»ÕÀ */
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 15px;
+        }
+        .tripcom-form button:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+        }
+        
+        /*  Õ”Ì‰«  ··‘«‘«  «·’€Ì—… */
+        @media (max-width: 480px) {
+            .tripcom-container {
+                margin: 10px;
+                padding: 20px;
+            }
+            .tripcom-logo {
+                font-size: 24px;
+            }
+            .tripcom-form button {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tripcom-container">
+        <div class="tripcom-logo">Trip.com</div>
+        <form id="tripcom_search_form" class="tripcom-form">
+            <div class="input-group">
+                <label for="depCity">„œÌ‰… «·„€«œ—… (—„“ IATA)</label>
+                <input type="text" id="depCity" placeholder="„À«·: CAI" required />
+            </div>
+            
+            <div class="input-group">
+                <label for="arrCity">„œÌ‰… «·Ê’Ê· (—„“ IATA)</label>
+                <input type="text" id="arrCity" placeholder="„À«·: DXB" required />
+            </div>
+
+            <div class="input-group">
+                <label for="depDate"> «—ÌŒ «·–Â«»</label>
+                <input type="date" id="depDate" required />
+            </div>
+
+            <div class="input-group">
+                <label for="retDate"> «—ÌŒ «·⁄Êœ… («Œ Ì«—Ì)</label>
+                <input type="date" id="retDate" />
+            </div>
+
+            <button type="submit">«»ÕÀ ⁄‰ —Õ·«  Trip.com</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('tripcom_search_form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const depCity = document.getElementById('depCity').value.trim();
+            const arrCity = document.getElementById('arrCity').value.trim();
+            const depDate = document.getElementById('depDate').value;
+            const retDate = document.getElementById('retDate').value;
+
+            // —„“ «·⁄„Ê·… «·Œ«’ »ﬂ: GiGqj3dp
+            let url = `https://www.trip.com/flights/international-flights/search?dcity=${depCity}&acity=${arrCity}&ddate=${depDate}&rdate=${retDate}&allianceid=GiGqj3dp`;
+
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
