@@ -1,0 +1,26 @@
+# „ﬂ »«  √”«”Ì… ·‹ PyTorch Ê Diffusion
+torch==2.0.0
+torchaudio==2.0.0
+torchvision==0.15.1
+numpy
+gradio==3.32.0
+accelerate
+diffusers
+transformers
+
+# „ﬂ »«  «·Õ—ﬂ… Ê«·„Ê‰ «Ã «·«Õ —«›Ì (SVD ÊÕ—ﬂ… «·ﬂ«„Ì—«)
+scipy
+opencv-python
+scikit-video
+moviepy
+
+#  Ê·Ìœ «·’Ê  «·Ê«ﬁ⁄Ì (Coqui TTS)
+TTS
+librosa
+
+#  Ê·Ìœ «·„Ê”ÌﬁÏ «·«Õ —«›Ì… (Meta's AudioCraft)
+audiocraft
+
+# „⁄«·Ã… «·’Ê  Ê«·„ƒÀ—«  Ê«· ·ÊÌ‰ «·⁄‘Ê«∆Ì
+pydub
+scikit-image
