@@ -2,11 +2,11 @@
 <html lang="ar" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip.com - »ÕÀ —Õ·«  «·ÿÌ—«‰</title>
+    <title>Trip.com - √à√ç√ã √ë√ç√°√á√ä √á√°√ò√≠√ë√á√§</title>
     <style>
         body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .tripcom-container {
-            background: linear-gradient(135deg, #ff5e3a 0%, #cc4b2f 100%); /* Œ·›Ì… „ œ—Ã… */
+            background: linear-gradient(135deg, #ff5e3a 0%, #cc4b2f 100%); /* √é√°√ù√≠√â √£√ä√è√ë√å√â */
             max-width: 400px;
             margin: 20px auto;
             padding: 25px;
@@ -64,7 +64,7 @@
         }
         .tripcom-form button {
             padding: 14px;
-            background-color: #ffc107; /* ·Ê‰ „„Ì“ ·“— «·»ÕÀ */
+            background-color: #ffc107; /* √°√¶√§ √£√£√≠√í √°√í√ë √á√°√à√ç√ã */
             color: #000;
             border: none;
             border-radius: 8px;
@@ -80,7 +80,7 @@
             transform: translateY(-2px);
         }
         
-        /*  Õ”Ì‰«  ··‘«‘«  «·’€Ì—… */
+        /* √ä√ç√ì√≠√§√á√ä √°√°√î√á√î√á√ä √á√°√ï√õ√≠√ë√â */
         @media (max-width: 480px) {
             .tripcom-container {
                 margin: 10px;
@@ -101,26 +101,26 @@
         <div class="tripcom-logo">Trip.com</div>
         <form id="tripcom_search_form" class="tripcom-form">
             <div class="input-group">
-                <label for="depCity">„œÌ‰… «·„€«œ—… (—„“ IATA)</label>
-                <input type="text" id="depCity" placeholder="„À«·: CAI" required />
+                <label for="depCity">√£√è√≠√§√â √á√°√£√õ√á√è√ë√â (√ë√£√í IATA)</label>
+                <input type="text" id="depCity" placeholder="√£√ã√á√°: CAI" required />
             </div>
             
             <div class="input-group">
-                <label for="arrCity">„œÌ‰… «·Ê’Ê· (—„“ IATA)</label>
-                <input type="text" id="arrCity" placeholder="„À«·: DXB" required />
+                <label for="arrCity">√£√è√≠√§√â √á√°√¶√ï√¶√° (√ë√£√í IATA)</label>
+                <input type="text" id="arrCity" placeholder="√£√ã√á√°: DXB" required />
             </div>
 
             <div class="input-group">
-                <label for="depDate"> «—ÌŒ «·–Â«»</label>
+                <label for="depDate">√ä√á√ë√≠√é √á√°√ê√•√á√à</label>
                 <input type="date" id="depDate" required />
             </div>
 
             <div class="input-group">
-                <label for="retDate"> «—ÌŒ «·⁄Êœ… («Œ Ì«—Ì)</label>
+                <label for="retDate">√ä√á√ë√≠√é √á√°√ö√¶√è√â (√á√é√ä√≠√á√ë√≠)</label>
                 <input type="date" id="retDate" />
             </div>
 
-            <button type="submit">«»ÕÀ ⁄‰ —Õ·«  Trip.com</button>
+            <button type="submit">√á√à√ç√ã √ö√§ √ë√ç√°√á√ä Trip.com</button>
         </form>
     </div>
 
@@ -133,7 +133,7 @@
             const depDate = document.getElementById('depDate').value;
             const retDate = document.getElementById('retDate').value;
 
-            // —„“ «·⁄„Ê·… «·Œ«’ »ﬂ: GiGqj3dp
+            // √ë√£√í √á√°√ö√£√¶√°√â √á√°√é√á√ï √à√ü: GiGqj3dp
             let url = `https://www.trip.com/flights/international-flights/search?dcity=${depCity}&acity=${arrCity}&ddate=${depDate}&rdate=${retDate}&allianceid=GiGqj3dp`;
 
             window.open(url, '_blank');
