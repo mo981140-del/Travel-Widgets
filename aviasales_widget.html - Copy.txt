@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: transparent; margin: 0; padding: 5px; }
+        .horizontal-widget { background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 15px; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .input-item { display: flex; flex-direction: column; min-width: 120px; flex: 1; }
+        .input-item label { font-size: 11px; font-weight: bold; color: #374151; margin-bottom: 4px; text-transform: uppercase; }
+        .input-item input { padding: 10px; border: 1px solid #9ca3af; border-radius: 5px; font-size: 13px; outline: none; }
+        .input-item input:focus { border-color: #007bff; box-shadow: 0 0 3px rgba(0,123,255,0.2); }
+        .search-btn { background-color: #007bff; color: white; padding: 11px 20px; border: none; border-radius: 5px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s; height: 38px; }
+        .search-btn:hover { background-color: #0056b3; }
+        @media (max-width: 600px) { .horizontal-widget { flex-direction: column; align-items: stretch; } }
+    </style>
+</head>
+<body>
+    <div class="horizontal-widget">
+        <div class="input-item">
+            <label>From (IATA)</label>
+            <input type="text" id="origin" placeholder="e.g. CAI" maxlength="3" required>
+        </div>
+        <div class="input-item">
+            <label>To (IATA)</label>
+            <input type="text" id="destination" placeholder="e.g. DXB" maxlength="3" required>
+        </div>
+        <div class="input-item">
+            <label>Departure</label>
+            <input type="date" id="depDate" required>
+        </div>
+        <div class="input-item">
+            <label>Return</label>
+            <input type="date" id="retDate">
+        </div>
+        <button class="search-btn" id="searchBtn">SEARCH</button>
+    </div>
+    <script>
+        document.getElementById('searchBtn').onclick = function() {
+            const origin = document.getElementById('origin').value;
+            const dest = document.getElementById('destination').value;
+            const dep = document.getElementById('depDate').value;
+            const ret = document.getElementById('retDate').value;
+            if(origin && dest && dep) {
+                const url = `https://search.aviasales.com/?origin_iata=${origin}&destination_iata=${dest}&depart_date=${dep}&return_date=${ret}&marker=HkZPtDdO`;
+                window.open(url, '_blank');
+            } else { alert("Please fill origin, destination and departure date."); }
+        };
+    </script>
+</body>
+</html>
