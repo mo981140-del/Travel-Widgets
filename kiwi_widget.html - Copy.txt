@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; margin: 0; padding: 10px; }
+        .widget-card { background: #ffffff; border: 1px solid #e1e4e8; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 350px; margin: auto; }
+        .header { color: #00a680; font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; }
+        .input-box { margin-bottom: 15px; }
+        .input-box label { display: block; font-size: 14px; color: #4a5568; margin-bottom: 6px; font-weight: 600; }
+        .input-box input { width: 100%; padding: 12px; border: 1.5px solid #cbd5e0; border-radius: 8px; font-size: 15px; box-sizing: border-box; transition: 0.3s; }
+        .input-box input:focus { border-color: #00a680; outline: none; box-shadow: 0 0 0 3px rgba(0,166,128,0.1); }
+        .search-btn { width: 100%; padding: 14px; background-color: #00a680; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .search-btn:hover { background-color: #007a5e; }
+    </style>
+</head>
+<body>
+    <div class="widget-card">
+        <div class="header">«·»ÕÀ ⁄»— Kiwi.com</div>
+        <form id="kiwiForm">
+            <div class="input-box">
+                <label>„‰ (—„“ «·„ÿ«—):</label>
+                <input type="text" id="origin" placeholder="„À·« CAI" required>
+            </div>
+            <div class="input-box">
+                <label>≈·Ï (—„“ «·„ÿ«—):</label>
+                <input type="text" id="destination" placeholder="„À·« DXB" required>
+            </div>
+            <div class="input-box">
+                <label> «—ÌŒ «·–Â«»:</label>
+                <input type="date" id="depDate" required>
+            </div>
+            <div class="input-box">
+                <label> «—ÌŒ «·⁄Êœ… («Œ Ì«—Ì):</label>
+                <input type="date" id="retDate">
+            </div>
+            <button type="submit" class="search-btn">»ÕÀ ⁄‰ —Õ·«  „—‰…</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('kiwiForm').onsubmit = function(e) {
+            e.preventDefault();
+            const url = `https://www.kiwi.com/booking?from=${document.getElementById('origin').value}&to=${document.getElementById('destination').value}&dateFrom=${document.getElementById('depDate').value}&dateTo=${document.getElementById('retDate').value}&affilid=eHpbclVw`;
+            window.open(url, '_blank');
+        };
+    </script>
+</body>
+</html>
