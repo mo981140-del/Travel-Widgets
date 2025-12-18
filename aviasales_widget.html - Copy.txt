@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: transparent; }
+        .search-bar { display: flex; flex-wrap: wrap; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #dcdcdc; gap: 10px; align-items: flex-end; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .input-unit { display: flex; flex-direction: column; flex: 1; min-width: 130px; }
+        .input-unit label { font-size: 11px; font-weight: 700; color: #555; margin-bottom: 5px; text-transform: uppercase; }
+        .input-unit input { padding: 10px; border: 1px solid #bbb; border-radius: 4px; font-size: 14px; outline: none; transition: 0.3s; }
+        .input-unit input:focus { border-color: #007bff; box-shadow: 0 0 5px rgba(0,123,255,0.2); }
+        .btn-search { background-color: #007bff; color: white; padding: 10px 25px; border: none; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; height: 38px; transition: 0.3s; }
+        .btn-search:hover { background-color: #0056b3; transform: translateY(-1px); }
+        @media (max-width: 768px) { .search-bar { flex-direction: column; align-items: stretch; } }
+    </style>
+</head>
+<body>
+    <div class="search-bar">
+        <div class="input-unit"><label>From (IATA)</label><input type="text" id="orig" placeholder="e.g. CAI" maxlength="3"></div>
+        <div class="input-unit"><label>To (IATA)</label><input type="text" id="dest" placeholder="e.g. DXB" maxlength="3"></div>
+        <div class="input-unit"><label>Departure</label><input type="date" id="dDate"></div>
+        <div class="input-unit"><label>Return</label><input type="date" id="rDate"></div>
+        <button class="btn-search" onclick="doSearch()">SEARCH FLIGHTS</button>
+    </div>
+    <script>
+        function doSearch() {
+            const o = document.getElementById('orig').value, d = document.getElementById('dest').value, dd = document.getElementById('dDate').value, rd = document.getElementById('rDate').value;
+            if(o && d && dd) window.open(`https://search.aviasales.com/?origin_iata=${o}&destination_iata=${d}&depart_date=${dd}&return_date=${rd}&marker=HkZPtDdO`, '_blank');
+            else alert("Please fill at least Origin, Destination and Departure Date.");
+        }
+    </script>
+</body>
+</html>
