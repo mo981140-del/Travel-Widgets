@@ -1,4 +1,4 @@
-<div style="direction: ltr; font-family: 'Segoe UI', Arial, sans-serif; max-width: 420px; margin: 20px auto; background: #ffffff; border-radius: 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; overflow: hidden;">
+<div style="direction: ltr; font-family: 'Segoe UI', Arial, sans-serif; max-width: 400px; margin: 20px auto; background: #ffffff; border-radius: 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; overflow: hidden;">
     <div style="background: #ff5e3a; padding: 18px; color: white; text-align: center; font-weight: bold; font-size: 20px; letter-spacing: 1px;">
         TRIP.COM FLIGHTS
     </div>
@@ -7,46 +7,46 @@
         
         <div style="display: flex; gap: 12px;">
             <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">From</label>
-                <input type="text" id="t_from" placeholder="CAI" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; outline: none; background: #f9f9f9;">
+                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">From (IATA)</label>
+                <input type="text" id="t_from" placeholder="CAI" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; background: #f9f9f9; box-sizing: border-box;">
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">To</label>
-                <input type="text" id="t_to" placeholder="DXB" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; outline: none; background: #f9f9f9;">
+                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">To (IATA)</label>
+                <input type="text" id="t_to" placeholder="DXB" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; background: #f9f9f9; box-sizing: border-box;">
             </div>
         </div>
 
         <div style="display: flex; gap: 12px;">
             <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
                 <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">Departure</label>
-                <input type="date" id="t_depart" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9;">
+                <input type="date" id="t_depart" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9; box-sizing: border-box; min-height: 40px;">
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
                 <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">Return</label>
-                <input type="date" id="t_return" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9;">
+                <input type="date" id="t_return" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9; box-sizing: border-box; min-height: 40px;">
             </div>
         </div>
 
-        <button onclick="runTripSearch()" style="background: #ff5e3a; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; margin-top: 10px; box-shadow: 0 4px 12px rgba(255, 94, 58, 0.3);">
+        <button onclick="triggerSearch()" style="background: #ff5e3a; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; margin-top: 10px; box-shadow: 0 4px 12px rgba(255, 94, 58, 0.3); width: 100%;">
             SEARCH & BOOK NOW
         </button>
     </div>
 </div>
 
 <script>
-function runTripSearch() {
+function triggerSearch() {
     const from = document.getElementById('t_from').value.trim().toUpperCase();
     const to = document.getElementById('t_to').value.trim().toUpperCase();
     const depart = document.getElementById('t_depart').value;
     const ret = document.getElementById('t_return').value;
 
     if (from && to && depart) {
-        // ÊÍÏíÏ äæÚ ÇáÑÍáÉ (ÐåÇÈ æÚæÏÉ Ãæ ÇÊÌÇå æÇÍÏ)
-        const type = ret ? 'roundtrip' : 'oneway';
-        const searchUrl = `https://www.trip.com/flights/list?flighttype=${type}&dcity=${from}&acity=${to}&ddate=${depart}&rdate=${ret}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
-        window.open(searchUrl, '_blank');
+        // بناء الرابط المباشر لصفحة النتائج لضمان البحث التلقائي
+        const fType = ret ? 'roundtrip' : 'oneway';
+        const url = `https://www.trip.com/flights/list?flighttype=${fType}&dcity=${from}&acity=${to}&ddate=${depart}&rdate=${ret}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
+        window.open(url, '_blank');
     } else {
-        alert("Please enter Origin, Destination and Departure Date.");
+        alert("Please fill From, To, and Departure date.");
     }
 }
 </script>
