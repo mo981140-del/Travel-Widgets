@@ -1,0 +1,19 @@
+<div style="direction: ltr; font-family: 'Segoe UI', Roboto, sans-serif; max-width: 400px; margin: 20px auto; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border: 1px solid #e5e7eb; overflow: hidden;">
+    <div style="background: #ff5e3a; padding: 12px; color: #fff; text-align: center; font-weight: bold; font-size: 16px;">Trip.com Flights</div>
+    <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+        <div><label style="font-size: 12px; color: #666; font-weight: 600;">FROM (IATA)</label><input type="text" id="t_o" placeholder="e.g. CAI" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 5px;"></div>
+        <div><label style="font-size: 12px; color: #666; font-weight: 600;">TO (IATA)</label><input type="text" id="t_d" placeholder="e.g. DXB" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 5px;"></div>
+        <div><label style="font-size: 12px; color: #666; font-weight: 600;">DEPARTURE DATE</label><input type="date" id="t_dd" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 5px;"></div>
+        <button onclick="bookTrip()" style="background: #ff5e3a; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 15px;">SEARCH & BOOK NOW</button>
+    </div>
+</div>
+<script>
+function bookTrip() {
+    const o = document.getElementById('t_o').value.toUpperCase();
+    const d = document.getElementById('t_d').value.toUpperCase();
+    const dd = document.getElementById('t_dd').value;
+    if(o && d && dd) {
+        window.open(`https://www.trip.com/flights/list?flighttype=oneway&dcity=${o}&acity=${d}&ddate=${dd}&allianceid=GiGqj3dp`, '_blank');
+    } else { alert("Please fill all fields"); }
+}
+</script>
