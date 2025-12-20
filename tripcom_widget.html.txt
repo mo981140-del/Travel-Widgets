@@ -1,0 +1,38 @@
+<div style="direction: ltr; font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border: 2px solid #ff5e3a; overflow: hidden;">
+    <div style="background: #ff5e3a; padding: 12px; color: white; text-align: center; font-weight: bold; font-size: 16px;">Trip.com Flights</div>
+    
+    <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 11px; font-weight: bold; color: #ff5e3a;">FLYING FROM (e.g. CAI)</label>
+            <input type="text" id="trip_from" placeholder="City or Airport Code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 11px; font-weight: bold; color: #ff5e3a;">FLYING TO (e.g. DXB)</label>
+            <input type="text" id="trip_to" placeholder="City or Airport Code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 11px; font-weight: bold; color: #ff5e3a;">DEPARTURE DATE</label>
+            <input type="date" id="trip_date" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; display: block;">
+        </div>
+
+        <button onclick="executeTripSearch()" style="background: #ff5e3a; color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 10px;">SEARCH & SHOW RESULTS</button>
+    </div>
+</div>
+
+<script>
+function executeTripSearch() {
+    const from = document.getElementById('trip_from').value.trim().toUpperCase();
+    const to = document.getElementById('trip_to').value.trim().toUpperCase();
+    const date = document.getElementById('trip_date').value;
+
+    if (from && to && date) {
+        // «·—«»ÿ «·„’·Õ ··»ÕÀ «· ·ﬁ«∆Ì «·„»«‘—
+        const url = `https://www.trip.com/flights/list?flighttype=oneway&dcity=${from}&acity=${to}&ddate=${date}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
+        window.open(url, '_blank');
+    } else {
+        alert("Please fill in all fields (From, To, and Date)");
+    }
+}
+</script>
