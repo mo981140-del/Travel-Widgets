@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 10px; background-color: #f9f9f9; }
+        .card { background: white; border-radius: 10px; padding: 15px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .title { color: #ff5e3a; font-weight: bold; text-align: center; margin-bottom: 15px; }
+        label { font-size: 12px; font-weight: bold; color: #333; display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #ff5e3a; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="title">Trip.com Flights</div>
+        <label>Fly From</label>
+        <input type="text" id="origin" placeholder="IATA">
+        <label>Fly To</label>
+        <input type="text" id="dest" placeholder="IATA">
+        <label>Departure</label>
+        <input type="date" id="dep">
+        <label>Return</label>
+        <input type="date" id="ret">
+        <button onclick="search()">BOOK TRIP</button>
+    </div>
+    <script>
+        function search() {
+            const o = document.getElementById('origin').value, d = document.getElementById('dest').value, dd = document.getElementById('dep').value, rd = document.getElementById('ret').value;
+            if(o && d && dd) window.open(`https://www.trip.com/flights/international-flights/search?dcity=${o}&acity=${d}&ddate=${dd}&rdate=${rd}&allianceid=GiGqj3dp`, '_blank');
+        }
+    </script>
+</body>
+</html>

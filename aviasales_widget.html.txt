@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 10px; background-color: #f9f9f9; }
+        .card { background: white; border-radius: 10px; padding: 15px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .title { color: #007bff; font-weight: bold; text-align: center; margin-bottom: 15px; }
+        label { font-size: 12px; font-weight: bold; color: #333; display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="title">Aviasales Flights</div>
+        <label>From (IATA)</label>
+        <input type="text" id="origin" placeholder="e.g. CAI">
+        <label>To (IATA)</label>
+        <input type="text" id="dest" placeholder="e.g. DXB">
+        <label>Departure Date</label>
+        <input type="date" id="dep">
+        <label>Return Date</label>
+        <input type="date" id="ret">
+        <button onclick="doSearch()">SEARCH NOW</button>
+    </div>
+    <script>
+        function doSearch() {
+            const o = document.getElementById('origin').value, d = document.getElementById('dest').value, dd = document.getElementById('dep').value, rd = document.getElementById('ret').value;
+            if(o && d && dd) window.open(`https://search.aviasales.com/?origin_iata=${o}&destination_iata=${d}&depart_date=${dd}&return_date=${rd}&marker=HkZPtDdO`, '_blank');
+            else alert("Please fill From, To, and Departure Date");
+        }
+    </script>
+</body>
+</html>
