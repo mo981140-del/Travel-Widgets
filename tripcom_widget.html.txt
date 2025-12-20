@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { margin: 0; padding: 10px; font-family: sans-serif; }
+        .search-wrapper { background: #fff; border: 2px solid #ff5e3a; border-radius: 50px; display: grid; grid-template-columns: 1fr 1fr 1.2fr 1.2fr 0.8fr; align-items: center; padding: 5px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 600px; }
+        .cell { display: flex; flex-direction: column; border-right: 1px solid #eee; padding: 0 10px; }
+        label { font-size: 9px; font-weight: bold; color: #ff5e3a; margin-bottom: 2px; }
+        input { border: none; font-size: 14px; outline: none; width: 100%; }
+        .btn { background: #ff5e3a; color: white; border: none; border-radius: 40px; padding: 12px 0; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="search-wrapper">
+        <div class="cell"><label>FLY FROM</label><input type="text" id="o" placeholder="CAI"></div>
+        <div class="cell"><label>FLY TO</label><input type="text" id="d" placeholder="DXB"></div>
+        <div class="cell"><label>DATE</label><input type="date" id="dd"></div>
+        <div class="cell"><label>RETURN</label><input type="date" id="rd"></div>
+        <button class="btn" onclick="go()">BOOK</button>
+    </div>
+    <script>
+        function go() {
+            const o=document.getElementById('o').value, d=document.getElementById('d').value, dd=document.getElementById('dd').value, rd=document.getElementById('rd').value;
+            if(o && d && dd) window.open(`https://www.trip.com/flights/international-flights/search?dcity=${o}&acity=${d}&ddate=${dd}&rdate=${rd}&allianceid=GiGqj3dp`, '_blank');
+        }
+    </script>
+</body>
+</html>
