@@ -41,7 +41,7 @@ function runTripSearch() {
     const ret = document.getElementById('t_return').value;
 
     if (from && to && depart) {
-        //  ÕœÌœ ‰Ê⁄ «·—Õ·… (–Â«» Ê⁄Êœ… √Ê « Ã«Â Ê«Õœ)
+        // √ä√ç√è√≠√è √§√¶√ö √á√°√ë√ç√°√â (√ê√•√á√à √¶√ö√¶√è√â √É√¶ √á√ä√å√á√• √¶√á√ç√è)
         const type = ret ? 'roundtrip' : 'oneway';
         const searchUrl = `https://www.trip.com/flights/list?flighttype=${type}&dcity=${from}&acity=${to}&ddate=${depart}&rdate=${ret}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
         window.open(searchUrl, '_blank');
