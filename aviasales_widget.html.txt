@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 15px; background: transparent; }
+        .card { background: #fff; border-radius: 12px; padding: 25px; border: 1px solid #e1e4e8; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 360px; margin: auto; }
+        label { display: block; font-size: 11px; font-weight: bold; color: #555; text-transform: uppercase; margin-bottom: 5px; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        .btn { width: 100%; padding: 15px; background: #007bff; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3 style="color:#007bff; text-align:center; margin-top:0;">Aviasales Flights</h3>
+        <label>From (IATA)</label><input type="text" id="o" placeholder="e.g. CAI">
+        <label>To (IATA)</label><input type="text" id="d" placeholder="e.g. DXB">
+        <label>Departure Date</label><input type="date" id="dd">
+        <label>Return Date</label><input type="date" id="rd">
+        <button class="btn" onclick="openA()">SEARCH FLIGHTS</button>
+        <div style="height: 10px;"></div>
+    </div>
+    <script>
+        function openA() {
+            const o=document.getElementById('o').value, d=document.getElementById('d').value, dd=document.getElementById('dd').value, rd=document.getElementById('rd').value;
+            if(o && d && dd) window.open(`https://search.aviasales.com/?origin_iata=${o}&destination_iata=${d}&depart_date=${dd}&return_date=${rd}&marker=HkZPtDdO`, '_blank');
+        }
+    </script>
+</body>
+</html>
