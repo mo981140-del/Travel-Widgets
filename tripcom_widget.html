@@ -1,54 +1,46 @@
-<div style="direction: ltr; font-family: 'Segoe UI', Roboto, sans-serif; max-width: 400px; margin: 20px auto; background: #ffffff; border-radius: 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.15); border: 1px solid #e1e4e8; overflow: hidden;">
-    <div style="background: #ff5e3a; padding: 18px; color: white; text-align: center; font-weight: bold; font-size: 19px; letter-spacing: 0.5px;">
-        TRIP.COM FLIGHTS
-    </div>
-    
-    <div style="padding: 25px; display: flex; flex-direction: column; gap: 20px;">
-        <div style="display: flex; gap: 12px;">
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">From (IATA)</label>
-                <input type="text" id="t_from_final" placeholder="CAI" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; background: #f9f9f9; outline: none; box-sizing: border-box;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { margin: 0; font-family: sans-serif; background: transparent; }
+        .box { max-width: 380px; margin: 10px auto; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; overflow: hidden; }
+        .head { background: #ff5e3a; padding: 18px; color: #fff; text-align: center; font-weight: bold; font-size: 18px; }
+        .form { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .row { display: flex; gap: 10px; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 14px; box-sizing: border-box; background: #fafafa; }
+        label { font-size: 10px; font-weight: bold; color: #ff5e3a; margin-bottom: 5px; display: block; }
+        button { background: #ff5e3a; color: #fff; border: none; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="head">TRIP.COM FLIGHTS</div>
+        <div class="form">
+            <div class="row">
+                <div style="flex:1"><label>FROM</label><input type="text" id="f" placeholder="CAI"></div>
+                <div style="flex:1"><label>TO</label><input type="text" id="t" placeholder="DXB"></div>
             </div>
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">To (IATA)</label>
-                <input type="text" id="t_to_final" placeholder="DXB" style="width: 100%; padding: 12px; border: 1.5px solid #eee; border-radius: 10px; font-size: 15px; background: #f9f9f9; outline: none; box-sizing: border-box;">
+            <div class="row">
+                <div style="flex:1"><label>DEPARTURE</label><input type="date" id="d"></div>
+                <div style="flex:1"><label>RETURN</label><input type="date" id="r"></div>
             </div>
+            <button onclick="startSearch()">SEARCH & BOOK NOW</button>
         </div>
-
-        <div style="display: flex; gap: 12px;">
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">Departure</label>
-                <input type="date" id="t_dep_final" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9; box-sizing: border-box; display: block; min-height: 45px;">
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
-                <label style="font-size: 11px; font-weight: 800; color: #ff5e3a; text-transform: uppercase;">Return</label>
-                <input type="date" id="t_ret_final" style="width: 100%; padding: 10px; border: 1.5px solid #eee; border-radius: 10px; font-size: 13px; background: #f9f9f9; box-sizing: border-box; display: block; min-height: 45px;">
-            </div>
-        </div>
-
-        <button onclick="executeFinalTripSearch()" style="background: #ff5e3a; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; width: 100%; box-shadow: 0 4px 12px rgba(255, 94, 58, 0.3);">
-            SEARCH & BOOK NOW
-        </button>
     </div>
-</div>
-
-<script>
-function executeFinalTripSearch() {
-    const from = document.getElementById('t_from_final').value.trim().toUpperCase();
-    const to = document.getElementById('t_to_final').value.trim().toUpperCase();
-    const dep = document.getElementById('t_dep_final').value;
-    const ret = document.getElementById('t_ret_final').value;
-
-    if (from && to && dep) {
-        // إعداد نوع الرحلة (ذهاب وعودة أو اتجاه واحد)
-        const flightType = ret ? 'roundtrip' : 'oneway';
-        // الرابط المباشر لنتائج البحث لنقل البيانات أوتوماتيكياً
-        const baseUrl = "https://www.trip.com/flights/list";
-        const query = `?flighttype=${flightType}&dcity=${from}&acity=${to}&ddate=${dep}${ret ? '&rdate=' + ret : ''}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
-        
-        window.open(baseUrl + query, '_blank');
-    } else {
-        alert("Please fill in Origin, Destination, and Departure Date.");
-    }
-}
-</script>
+    <script>
+        function startSearch() {
+            const from = document.getElementById('f').value.toUpperCase();
+            const to = document.getElementById('t').value.toUpperCase();
+            const dep = document.getElementById('d').value;
+            const ret = document.getElementById('r').value;
+            if (from && to && dep) {
+                const type = ret ? 'roundtrip' : 'oneway';
+                // هذا الرابط هو الذي يفتح صفحة النتائج مباشرة بالبيانات
+                const searchUrl = `https://www.trip.com/flights/list?flighttype=${type}&dcity=${from}&acity=${to}&ddate=${dep}${ret ? '&rdate=' + ret : ''}&allianceid=GiGqj3dp&sid=HkZPtDdO`;
+                window.open(searchUrl, '_top'); // '_top' تجعل الصفحة تفتح في نفس التبويب أو تبويب جديد حسب إعداد الموقع
+            } else { alert("Please enter cities and departure date"); }
+        }
+    </script>
+</body>
+</html>
